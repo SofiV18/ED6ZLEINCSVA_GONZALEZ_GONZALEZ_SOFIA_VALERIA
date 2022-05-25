@@ -15,13 +15,20 @@ i++;
 }while(i<11);
 */
 
-int cont=1;
+/*int cont=1;
 while(cont<=10){
 	cout<<cont<<endl;
 	cont++;
 	
 }
-cout<<"se acabo";
+cout<<"se acabo";*/
+
+
+//for
+
+for(int i=1; i<=10; i++)			
+    cout<<i<<endl;
+
 
 
 
