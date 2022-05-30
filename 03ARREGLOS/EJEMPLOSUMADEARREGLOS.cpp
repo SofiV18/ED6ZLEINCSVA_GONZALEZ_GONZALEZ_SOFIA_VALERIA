@@ -29,4 +29,6 @@ int main(){
 	}
 	
 	return 0;
+	
+	//realizar un programa que el usuario debe ingresar el tamaño de la matriz y debe de imprimir la matriz traspuesta 
 }

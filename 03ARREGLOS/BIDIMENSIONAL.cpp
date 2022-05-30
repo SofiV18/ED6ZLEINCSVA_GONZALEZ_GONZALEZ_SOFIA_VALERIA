@@ -13,4 +13,6 @@ int main(){
 	
 	return 0;
 	
+	//investigar cuales son los elementos y caracteristicas de una lista en estructura de datos en c++, empezaremos con lista 
+	
 }
