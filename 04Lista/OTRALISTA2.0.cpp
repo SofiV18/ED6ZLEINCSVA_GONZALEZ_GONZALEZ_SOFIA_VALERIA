@@ -17,15 +17,19 @@ using namespace std;
 struct dato{
 	int i;
 	dato *s; //nodo siguiente
-}*a, *i, *p, e*;
+}*a, *i, *p, *e;
+
+int dat;
 
 //metodos
 
 int buscar(int d);
-void insertar(void);
+void insertar(int dat);
 void mostrar(void);
 void borrar(void);
 void menu(void);
+void guardar(void);
+void cargar(void);
 //void guardar(void);
 //void cargar(void);
 
@@ -37,7 +41,7 @@ main(){
 //menu
 
 void menu(void){
-	int opc, da;
+	int opc, dat;
 	do{
 		//imprimir el menu
 		cout<<"Ejemplo de una lista con apuntadores";
@@ -55,8 +59,8 @@ void menu(void){
 			case 1:
 				//buscar
 				cout<<"\n Ingresa el dato a buscar: ";
-				cin>>da;
-				if(buscar(da)){
+				cin>>dat;
+				if(buscar(dat)){
 					cout<<"Dato si existe wiiii";
 				}else{
 					cout<<"Dato no existe solo juguito contigo T_T";
@@ -66,8 +70,8 @@ void menu(void){
 			case 2:
 				//ingresar
 				cout<<"\n Ingresa el dato: ";
-				cin>>da;
-				insertar(da);
+				cin>>dat;
+				insertar(dat);
 				break;
 			case 3:
 				//mostrar
@@ -94,7 +98,7 @@ void menu(void){
 				//de la lista
 				p = i;
 				while(p){
-				    a=p
+				    a = p;
 				    p = p->s;
 				    delete(a);
 				}
@@ -133,12 +137,12 @@ void mostrar(void){
 	getch();
 }
 //buscar
-int buscar(int d);{
+int buscar(int d){
 	//saber si hay una lista
 	if(!i){
 		cout<<"No hay datos en la lista para mostrar";
 		getch();
-		return;
+		return 0;
 	}
 	//si hay
 	p=i;
@@ -220,16 +224,16 @@ void insertar(int dat){
 	}else{
 		a->s=e;
 		e->s=p;
-	}
-	
-
-	
+	}	
 }
+
+
+
 //borrar
 void borrar(void){
-	cout<<"\m Ingresa el dato que quieres borrar: ";
-	cin>>da;
-	if(buscar(da)){
+	cout<<"\n Ingresa el dato que quieres borrar: ";
+	cin>>dat;
+	if(buscar(dat)){
 		if(a){
 			a->s=p->s;
 		}else{
@@ -242,3 +246,42 @@ void borrar(void){
 		getch();
 	}
 }
+void guardar(void){
+ FILE *arch;
+ arch=fopen(" DATOS-A.TXT","w");
+     if(!i){
+     cout<<"\n\n No hay lista para ser gaurdadaa :(";
+        getch();
+		return;
+ }
+ p=i;
+ while(p){
+ fprintf(arch,"%i\n",p->i);
+ p=p->s;
+ }
+ cout<<"\n\n El archivo se ha guardado ";
+ fclose(arch);
+ getch();
+ }
+ 
+void cargar(void){
+ int c,x;
+ FILE *arch;
+ arch=fopen("DATOS-A.TXT","r");
+     if(!arch){
+     cout<<"\n\n NO EXISTE ARCHIVO :(";
+     getch();
+ return;
+ }
+ 
+do{
+ c=fscanf(arch,"%i\n",&x);
+     if(c!=EOF){
+ insertar(x);
+     }
+ }
+ while (c!=EOF);
+ cout<<"\n\n El archivo se ha cargado ";
+ fclose(arch);
+ getch();
+ }

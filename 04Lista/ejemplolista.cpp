@@ -65,10 +65,10 @@ int main(){
 		cin>>op;
 		switch(op){
 			case 1:
-				cout<<"Indica el numero de valores a introducir\n";
+				cout<<" Indica el numero de valores a introducir\n ";
 				cin>>valores;
 				while(i<valores){
-					cout<<"Valor["<<i<<"]\n";
+					cout<<" Valor ["<< i <<"] \n ";
 					cin>>c;
 					//insertar el valor
 					insertarlista(lista, c);
@@ -76,11 +76,11 @@ int main(){
 					}
 					break;
 			case 2:
-				cout<<"Mostrar los valores de la lista\n";
-				cout<<"Imprimir valores";
+				cout<<" Mostrar los valores de la lista\n ";
+				cout<<" Imprimir valores ";
 				break;
 			default:
-			         cout<<"Gracias por mimir aqui uwu";
+			         cout<<" Gracias por mimir aqui uwu ";
 		}
 		
 	}
@@ -106,5 +106,16 @@ while((aux!=NULL)&&(aux->valor<c)){
 	aux2->siguiente=inslista;  
 }
 inslista->siguiente=aux;
-cout<<"Elemento "<<c<< "insertado"<<endl;
+cout<<"Elemento "<< c << " insertado "<<endl;
 }
+void mostrarLista(Nodo *lista){
+	Nodo *Nuevo = new Nodo();
+	Nuevo = lista;
+
+	
+	while(Nuevo != NULL){
+		cout<<" "<<Nuevo->valor;
+		Nuevo = Nuevo->siguiente;
+	}
+}
+
