@@ -248,7 +248,7 @@ void borrar(void){
 }
 void guardar(void){
  FILE *arch;
- arch=fopen(" DATOS-A.TXT","w");
+ arch=fopen(" Datos-A.TXT","w");
      if(!i){
      cout<<"\n\n No hay lista para ser gaurdadaa :(";
         getch();
@@ -267,7 +267,7 @@ void guardar(void){
 void cargar(void){
  int c,x;
  FILE *arch;
- arch=fopen("DATOS-A.TXT","r");
+ arch=fopen("Datos-A.TXT","r");
      if(!arch){
      cout<<"\n\n NO EXISTE ARCHIVO :(";
      getch();
