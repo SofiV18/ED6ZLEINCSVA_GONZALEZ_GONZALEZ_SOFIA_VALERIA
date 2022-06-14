@@ -1,11 +1,3 @@
-/*
-vamos a programar dos pilas
-que sirvan para poder unir ambos elementos 
-el programa debe contener 
-ingresar el tamaño de la pila
-un menu
-push, pop y mostrar los elementos de las pilas
-*/
 #include<iostream>
 #include<conio.h>
 
@@ -46,6 +38,7 @@ main(){
 		switch(opc){
 			case 1:
 				cout<<"Ingresa el limite de la pila: \n";
+				cin>>n;
 				cout<<"Valores pila 1: \n";
 				for(i=0; i<n; i++){
 					cout<<"Valor: "<<endl;
@@ -57,7 +50,7 @@ main(){
 				for(i=0; i<n; i++){
 					cout<<"Valor: "<<endl;
 					cin>>valor;
-					push(p1, valor);
+					push(p2, valor);
 					
 				}
 			break;
@@ -84,7 +77,7 @@ void push(pila &p, int n){
 	p=q;
 }
 
-void unirPilas(pila p1, pila p2){
+void unir(pila p1, pila p2){
 	pila q=p1;
 	while(q->siguiente!=NULL){
 		q=q->siguiente;
@@ -115,7 +108,4 @@ void imprimir2(pila p2)
  }
 cout<<endl;
 }
-
-
-
 
