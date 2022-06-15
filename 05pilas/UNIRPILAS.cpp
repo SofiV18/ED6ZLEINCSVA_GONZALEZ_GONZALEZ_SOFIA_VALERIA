@@ -78,7 +78,7 @@ do{
    break;
    case 4:
          eliminarPila(p);
-         cout<<"Pila destruida";
+         cout<<"Pila destruida\n";
    break;
    case 5:
          cout<<"Pilas unidas\n";
