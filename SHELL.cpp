@@ -9,7 +9,8 @@ void shell(int[], int n);
 int main()
 {
     int total;
-    cout<<"Introduce el total de elementos: " <<endl;
+    cout<<"***BIENVENIDO/A***";
+    cout<<"\n Introduce el total de elementos: " <<endl;
     cin>>total;
     int num[total];
     for(int i = 0; i<total; i++)
