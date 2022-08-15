@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <windows.h>
 #include <conio.h>
 #include <cstdlib>
 #include <vector>
@@ -35,12 +37,21 @@ void cont();
 void doc();
 int main();
 void calculadora();
-void datos_paciente(){
+
+
+void datos_paciente(ofstream &es){
 system("cls");
+int CodPaciente; 
+char NomPaciente[60];
+char Genero;
+int Edad;
+float Talla;
+float Peso;
+ es.open("Personas.txt", ios::out| ios::app);
 cout<<"\t\tDatos de Paciente"<<endl;
 cout<<"Ingrese FOLIO:";
 cin>>pacientes[cant_pacientes].CodPaciente;
-cout<<"Ingrese nombre de paciente: ";
+cout<<"Ingrese nombre completo del paciente: ";
 cin>>pacientes[cant_pacientes].NomPaciente;
 cout<<"Ingrese genero(M/F): ";
 cin>>pacientes[cant_pacientes].Genero;
@@ -50,6 +61,8 @@ cout<<"Ingrese Estatura: ";
 cin>>pacientes[cant_pacientes].Talla;
 cout<<"Ingrese peso: ";
 cin>>pacientes[cant_pacientes].Peso;
+es<<"Folio: "<<CodPaciente<<" "<<"Nombre:  "<<NomPaciente<<" "<<"Genero: "<<Genero<<" "<<"Edad: "<<Edad<<" "<<"Estatura:"<<Talla<<" "<<"Peso: "<<Peso<<" ";
+es.close();
 cant_pacientes++;regresar_menu();
 }
 
@@ -159,11 +172,16 @@ cout<<endl<<endl;
 }
 
 
-void calculadora(){
-	 float peso;
+void calculadora(ofstream &es){
+	system("cls");
+	float peso;
+	char tsangre;
 	char Nom[60];
 	char G;
-    float estatura,imc, icc, cintura, cadera, precipita, subescapular, suprailico,precipital;
+	char covid;
+	char fum;
+    float mmuslo, mabdominales, mpecho, mpierna,estatura,imc, icc, cintura, cadera, precipita, subescapular, suprailico,precipital;
+    es.open("Personas.txt", ios::out| ios::app);
 	cout<<"Introduce tu nombre:  ";
 	cin>>Nom;
 	
@@ -173,11 +191,38 @@ void calculadora(){
     cout<<"Introduce tu Peso (Kg):  ";
 
     cin>>peso;
+    
+    cout<<"Ingrese tipo de sangre: ";
+    
+    cin>>tsangre;
+    
+    cout<<"¿Ha contraido COVID-19 alguna vez? ";
+    
+    cin>>covid;
+    
+    cout<<"¿Es o fue fumador? ";
+    
+    cin>>fum;
+    
+    cout<<"Ingrese las medidas del muslo: ";
+    
+    cin>>mmuslo;
+    
+    cout<<"Ingrese las medidas abdominales:";
+    
+    cin>>mabdominales;
+    
+    cout<<"Ingrese las medidas del pecho: ";
+    
+    cin>>mpecho;
+    	
+    cout<<"Ingrese las medidas de la pierna: ";
+    
+    cin>>mpierna;
 
     cout<<"Introduce tu Estatura  (Mts(1.00)): ";
 
     cin>>estatura;
-	
 	
     cout<<"Introduce  las medidas de la cintura (CM):  ";
 
@@ -218,6 +263,12 @@ void calculadora(){
     cout<<"Tu ICC es de: "<<icc<<endl;
     cout<<"Nombre: "<< Nom << endl;
     cout<<"Genero: "<< G << endl;
+    cout<<"Peso: "<<peso<<endl;
+    cout<<"Tipo de sangre: "<<tsangre<<endl;
+    cout<<"Ha tenido COVID-19: "<<covid<<endl;
+    cout<<"Es fumador/a: "<<fum<<endl;
+    es<<"Nombre: "<<Nom<<"  "<<"\n Genero: "<<G<<" "<<"\n Tipo de sangre: "<<tsangre<<" "<<"Ha contraido COVID-19: "<<covid<<" "<<"Es fumador/a: "<<fum<<" "<<"\n IMC: "<<imc<<" "<<"\n ICC: "<<icc<<" ";
+    es.close();
     regresar_doc();
     
 
@@ -244,6 +295,7 @@ else
 }
 
 void doc(){
+	ofstream Esc;
 	int opcion=0;
 do{
 system("cls");
@@ -262,10 +314,10 @@ case 1:
 	menucita();
 	break;
 case 2: 
-//	lista_pacientes();
+	lista_pacientes();
 	break;
 case 3: 
-	calculadora();
+	calculadora(Esc);
 	break;
 case 4:
 	main();
@@ -448,6 +500,7 @@ vector<string> usuarios;
 
 
 void menu(){
+	ofstream Esc;
 int opcion=0;
 do{
 system("cls");
@@ -463,7 +516,7 @@ cin>>opcion;
 switch (opcion)
 {
 case 1: 
-	datos_paciente();
+	datos_paciente(Esc);
 	break;
 case 2: 
 	lista_pacientes();
@@ -478,6 +531,7 @@ case 4:
 }
 
 int main(){
+	ofstream Esc;
 	system("color 3f");
 	
 	cout<<"INGRESA QUE TIPO DE USUARIO ERES\n";
